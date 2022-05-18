@@ -8,6 +8,8 @@ let gameTime = document.querySelector('#time');
 let score = document.querySelector('#score');
 //Pairs to find. Assigned via addRow function.
 let pairs = undefined;
+//Winner message
+const winner = document.getElementById('tagline');
 
 //Timer & card pick variables
 //Card pick 1 is assigned to:
@@ -31,6 +33,10 @@ const col = document.querySelector('#col');
 //Form Event Listner
 frm.addEventListener('submit',function(event){
   event.preventDefault();
+  //Remove the Winner MEssage on Reset
+  if(!winner.classList.contains('hidden')){
+    winner.classList.add('hidden');
+  }
   //If no cards are present in the board space then:
   if(document.querySelector('main').childElementCount === 0){
     console.log(document.querySelector('main').childElementCount);
@@ -143,6 +149,8 @@ document.addEventListener('click',function(event){
       console.log('class list = ', document.querySelectorAll('.pair').length)
       if(document.querySelectorAll('.pair').length === pairs*2){
         clearInterval(gTime);
+        winner.classList.remove('hidden');
+
       }
     }
 

@@ -17,6 +17,9 @@ h2{
     color: #4827DA;
     font-family: Verdana, sans-serif;
 }
+.hidden {
+    visibility: hidden;
+}
 table {
     border-style: solid;
     text-align: center;
