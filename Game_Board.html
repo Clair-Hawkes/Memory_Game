@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Game Board</title>
+  <link rel="stylesheet" href="Game_Board.css">
+</head>
+<body>
+  <header>
+    <form action="#">
+      <label for="row">Pick the # of rows you want!
+        <input type="number" min="2" max="10" id="row" name="game" value="2" step="2">
+      </label> <br>
+      <label for="col">Pick the # of columns you want!
+        <input type="number" min="2" max="10" id="col" name="game" value="2" step="2">
+      </label><br>
+      <button type="submit">Submit / Reset</button>
+    </form>
+  </header>
+  <main id="cardgame">
+  <table>
+    <thead>
+      <tr>
+        <th colspan="2">Date</th>
+      </tr>
+    </thead>
+    <tbody>
+    </tbody>
+  </table>
+  </main>
+<script src="Game_Board.js"></script>
+</body>
+</html>

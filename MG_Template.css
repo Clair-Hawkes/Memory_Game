@@ -1,0 +1,102 @@
+#cardgame{
+    border-style: solid;
+    border-color: red;
+    /* display: flex; */
+}
+.row{
+    border: blue solid;
+    display: flex;
+    /* flex-direction: row; */
+    flex-wrap: wrap;
+    /* align-items: center; */
+    justify-content: space-around;
+    perspective: 800px;
+    align-items: center;
+}
+
+.card{
+    display: block;
+    height: 200px;
+    width: 150px;
+    border-style:solid;
+    margin: 25px 100px;
+    /* animation: z-axis 1s linear 0s 1 normal forwards;
+    transition: linear; */
+}
+img{
+    height: 200px;
+    width: 150px;
+    z-index: 0;
+}
+
+@keyframes flip {
+    0%{
+        /* transform: rotate(0deg); */
+        transform: rotate3d(0, 0, 0, 0deg);
+    }
+    100%{
+        /* transform: rotate(360deg); */
+        transform: rotate3d(.1,1,0, 180deg);
+    }
+}
+@keyframes hide {
+    0%{
+        /* transform: rotate(0deg); */
+        transform: rotate3d(0, 0, 0, 0deg);
+    }
+    100%{
+        /* transform: rotate(360deg); */
+        transform: rotate3d(.1,1,0, 180deg);
+    }
+}
+
+.forward{
+    animation: flip 1s linear 0s 1 normal forwards;
+    transition: linear;
+}
+.backward{
+    animation: hide 1s linear 0s 1 reverse forwards;
+    transition: linear;
+}
+
+
+
+
+
+
+.holder{
+    width: 200px;
+    height: 150px;
+    position: relative;
+    transition: transform 1s;
+    transform-style: preserve-3d;
+    transform-origin: 0,0;
+    /* display: flex;
+    align-content: center;
+    justify-content: center; */
+    margin: 25px 70px;
+
+
+}
+.face {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    backface-visibility: hidden;
+}
+.front{
+    background-color: red;
+    height: 200px;
+    width: 150px;
+    z-index: 2;
+}
+.back{
+    background-color: blue;
+    height: 200px;
+    width: 150px;
+    transform: rotateY(180deg);
+}
+
+.flipped {
+    transform: rotateY(180deg);
+  }

@@ -1,0 +1,59 @@
+table{
+    border-style: solid;
+    border-color: black;
+    width: 98vw;
+    height: 98vh;
+}
+tr{
+    border-style: solid;
+    border-color: black;
+}
+td{
+    border-style: solid;
+    border-color: black;
+    text-align: center;
+    perspective: 800px;
+}
+img{
+    width: 150px;
+    height: 200px;
+}
+
+
+
+/* MG_Template */
+
+.holder{
+    height: 75%;
+    width: 50%;
+    position: relative;
+    left: 100px;
+    transition: transform 1s;
+    transform-style: preserve-3d;
+    transform-origin: center;
+    /* display: flex;
+    align-content: center;
+    justify-content: center; */
+
+
+}
+.face {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    backface-visibility: hidden;
+}
+.front{
+    height: 75%;
+    width: 50%;
+}
+.back{
+    background-color: blue;
+    height: 75%;
+    width: 50%;
+    transform: rotateY(180deg);
+}
+
+.flipped {
+    transform: rotateY(180deg);
+  }

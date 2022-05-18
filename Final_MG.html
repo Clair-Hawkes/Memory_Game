@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Memory Game</title>
+  <link rel="stylesheet" href="Final_MG.css">
+</head>
+<body>
+  <header id="head">
+    <h1>Memory Game</h1>
+    <h2 id="tagline">w/ Randomizer</h2>
+    <h2>Instructions</h2>
+    <form action="#">
+      <label for="row">1.) Pick the # of rows you want!
+        <input type="number" min="2" max="10" id="row" name="game" value="2" step="2">
+      </label> <br>
+      <label for="col">2.) Pick the # of columns you want!
+        <input type="number" min="2" max="8" id="col" name="game" value="2" step="2">
+      </label><br>
+      <button type="submit" id="button">Start / Reset</button>
+      </form>
+  </header>
+  <aside>
+    <table>
+    <thead>
+      <tr>
+        <th colspan="3">Information</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Timer</td>
+        <td id="time">0</td>
+        <td>seconds</td>
+      </tr>
+      <tr>
+        <td id="score">0</td>
+        <td>Moves taken</td>
+      </tr>
+    </tbody>
+  </table>
+</aside>
+  <main>
+  </main>
+
+
+
+
+
+
+
+  <script src="Final_MG.js"></script>
+</body>
+</html>
