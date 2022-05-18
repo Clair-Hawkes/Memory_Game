@@ -20,12 +20,14 @@ h2{
 .hidden {
     visibility: hidden;
 }
+.collapse{
+    visibility: collapse;
+}
 table {
     border-style: solid;
     text-align: center;
     font-size: 15px;
     font-family: Verdana, sans-serif;
-
 }
 th{
     color: #4827DA;
@@ -79,7 +81,7 @@ img{
 aside{
     position: absolute;
     right: 100px;
-    top: 25px;
+    top: 20px;
 }
 main{
     background-color: #E4DFF9;

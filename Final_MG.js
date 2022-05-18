@@ -10,6 +10,11 @@ let score = document.querySelector('#score');
 let pairs = undefined;
 //Winner message
 const winner = document.getElementById('tagline');
+//LeaderBoard
+const foot = document.querySelector('tfoot');
+let bestScore = document.getElementById('best');
+let pairScore = document.getElementById('high');
+let timeScore = document.getElementById('low');
 
 //Timer & card pick variables
 //Card pick 1 is assigned to:
@@ -150,7 +155,17 @@ document.addEventListener('click',function(event){
       if(document.querySelectorAll('.pair').length === pairs*2){
         clearInterval(gTime);
         winner.classList.remove('hidden');
+        //bestScore = document.getElementById('best');
+        //pairScore = document.getElementById('high');
+        //timeScore = document.getElementById('low');
+        if(bestScore.innerText === ''){
+          bestScore.innerText = score.innerText;
+          pairScore.innerText = pairs;
+          timeScore.innerText = gameTime.innerText;
+        }
 
+
+        foot.classList.remove('collapse')
       }
     }
 
