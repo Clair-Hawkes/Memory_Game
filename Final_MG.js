@@ -125,15 +125,15 @@ function updateScoreBoard(){
           pairScore.innerText = pairs;
           timeScore.innerText = gameTime.innerText;
         } else if (pairs == pairScore.innerText){
-          console.log('pairs Equal');
+          // console.log('pairs Equal');
           if(score.innerText < bestScore.innerText){
             bestScore.innerText = score.innerText;
             pairScore.innerText = pairs;
             timeScore.innerText = gameTime.innerText;
           } else if (score.innerText == bestScore.innerText){
-            console.log('Score Equal');
-            console.log(Number(timeScore.innerText),' > ', Number(gameTime.innerText));
-            console.log(Number(timeScore.innerText) > Number(gameTime.innerText));
+            // console.log('Score Equal');
+            // console.log(Number(timeScore.innerText),' > ', Number(gameTime.innerText));
+            // console.log(Number(timeScore.innerText) > Number(gameTime.innerText));
             if(Number(timeScore.innerText) > Number(gameTime.innerText)){
               bestScore.innerText = score.innerText;
               pairScore.innerText = pairs;
