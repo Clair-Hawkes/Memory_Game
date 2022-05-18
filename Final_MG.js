@@ -44,7 +44,7 @@ frm.addEventListener('submit',function(event){
   }
   //If no cards are present in the board space then:
   if(document.querySelector('main').childElementCount === 0){
-    console.log(document.querySelector('main').childElementCount);
+    // console.log(document.querySelector('main').childElementCount);
     addRow(row.value,col.value);
     document.querySelector('#time');
     gTime = setInterval(function(){
@@ -114,6 +114,35 @@ function createCard(){
   return card;
 }
 
+//Update ScoreBoard
+function updateScoreBoard(){
+   if(bestScore.innerText === ''){
+          bestScore.innerText = score.innerText;
+          pairScore.innerText = pairs;
+          timeScore.innerText = gameTime.innerText;
+        } else if(pairs > pairScore.innerText){
+          bestScore.innerText = score.innerText;
+          pairScore.innerText = pairs;
+          timeScore.innerText = gameTime.innerText;
+        } else if (pairs == pairScore.innerText){
+          console.log('pairs Equal');
+          if(score.innerText < bestScore.innerText){
+            bestScore.innerText = score.innerText;
+            pairScore.innerText = pairs;
+            timeScore.innerText = gameTime.innerText;
+          } else if (score.innerText == bestScore.innerText){
+            console.log('Score Equal');
+            console.log(Number(timeScore.innerText),' > ', Number(gameTime.innerText));
+            console.log(Number(timeScore.innerText) > Number(gameTime.innerText));
+            if(Number(timeScore.innerText) > Number(gameTime.innerText)){
+              bestScore.innerText = score.innerText;
+              pairScore.innerText = pairs;
+              timeScore.innerText = gameTime.innerText;
+            }
+          }
+        }
+}
+
 
 //Flipping Cards Functionality
 //Tutorial credit https://3dtransforms.desandro.com/card-flip
@@ -136,7 +165,7 @@ document.addEventListener('click',function(event){
         two = null;
       },2000);
       if(one.lastElementChild.innerText === two.lastElementChild.innerText){
-        console.log(one.lastElementChild.innerText,two.lastElementChild.innerText,'Winner!');
+        // console.log(one.lastElementChild.innerText,two.lastElementChild.innerText,'Winner!');
         clearInterval(timerOne);
         clearInterval(timerTwo);
         one.lastElementChild.classList.add('pair');
@@ -150,30 +179,19 @@ document.addEventListener('click',function(event){
       //if the length of this node(?) array === pairs:
       //1. Stop timer
       //Alert You win! Or maybe everything gets a glow effect...
-      console.log('pairs = ',pairs);
-      console.log('class list = ', document.querySelectorAll('.pair').length)
+      // console.log('pairs = ',pairs);
+      // console.log('class list = ', document.querySelectorAll('.pair').length)
       if(document.querySelectorAll('.pair').length === pairs*2){
         clearInterval(gTime);
         winner.classList.remove('hidden');
-        //bestScore = document.getElementById('best');
-        //pairScore = document.getElementById('high');
-        //timeScore = document.getElementById('low');
-        if(bestScore.innerText === ''){
-          bestScore.innerText = score.innerText;
-          pairScore.innerText = pairs;
-          timeScore.innerText = gameTime.innerText;
-        }
-
-
-        foot.classList.remove('collapse')
+        updateScoreBoard();
+        foot.classList.remove('collapse');
+        // console.log('pairScore = ',pairScore.innerText,'Pairs = ',pairs);
+        // console.log('bestScore = ',bestScore.innerText,'Score = ',score.innerText);
+        // console.log('timeScore = ',timeScore.innerText,'Time = ',gameTime.innerText);
       }
     }
-
-
-
-
-
-
+    //Legacy animation auto flip back and forth;
     // const card = event.target.parentElement.parentElement;
     // card.classList.toggle('flipped');
     //   setTimeout(function(){
