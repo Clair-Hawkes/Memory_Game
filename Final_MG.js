@@ -113,6 +113,15 @@ function addRow(rows,cols){
 function createCard(bkg){
   const card = document.createElement('div');
   card.classList.add('holder');
+  if(row.value == 2){
+    card.classList.add('two');
+  } else if (row.value == 4){
+    card.classList.add('four');
+  } else if (row.value == 6){
+    card.classList.add('six');
+  } else if (row.value == 8){
+    card.classList.add('eight');
+  }
   const front = document.createElement('div');
   front.classList.add('face','front');
   const img = document.createElement('img');
