@@ -1,3 +1,10 @@
+//Card backs img links:
+const cardBacks = [
+  'https://images.unsplash.com/photo-1652641294941-2fb3bf657b53?ixlib=rb-1.2.1&raw_url=true&q=80&fm=jpg&crop=entropy&cs=tinysrgb&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=985',
+  'https://images.unsplash.com/photo-1652641511370-ecb8d426510e?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987',
+  'https://images.unsplash.com/photo-1652641742481-148ad3123bad?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987'
+]
+
 // Variables
 const game = document.querySelector('main');
 //Game time variable
@@ -82,13 +89,16 @@ function addRow(rows,cols){
   //Create a copy to splice values off of
   const copy = arr.slice();
 
+  //Set the cardBack;
+  const picture = cardBacks[Math.floor(Math.random()*cardBacks.length)];
+
   //Outer loop creates the number of rows
   for(let i = 1;i<=rows;i++){
     const row = document.createElement('section');
     row.classList.add('row');
     //Inner loop creates the number of columns
     for(let i =1;i<=cols;i++){
-      const card = createCard();
+      const card = createCard(picture);
       card.lastElementChild.innerText = copy.splice(Math.random()*copy.length,1);
       // td.append(card); Legacy comment. This is V3, and V2 was a table format.
       row.append(card);
@@ -100,13 +110,13 @@ function addRow(rows,cols){
 }
 
 //Create a single new card
-function createCard(){
+function createCard(bkg){
   const card = document.createElement('div');
   card.classList.add('holder');
   const front = document.createElement('div');
   front.classList.add('face','front');
   const img = document.createElement('img');
-  img.setAttribute('src',"https://images.unsplash.com/photo-1652641294941-2fb3bf657b53?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=985&q=80");
+  img.setAttribute('src',bkg);
   front.append(img);
   const back = document.createElement('div');
   back.classList.add('face','back');
