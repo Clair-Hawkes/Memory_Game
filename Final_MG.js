@@ -171,7 +171,7 @@ document.addEventListener('click',function(event){
   //Confirm the event click is on an img
   //Confirm the images parentEle.ParentEle (div.holder) is not flipping/flipped
   if(event.target.tagName === 'IMG' && !event.target.parentElement.parentElement.classList.contains('flipped')){
-    console.log(event.target.parentElement.parentElement.classList.contains('flipped'));
+    // console.log(event.target.parentElement.parentElement.classList.contains('flipped'));
     if(one === null){
       one = event.target.parentElement.parentElement;
       //Second Major Bug Fix!!!
@@ -202,7 +202,7 @@ document.addEventListener('click',function(event){
       },2000);
       //Second major bug found; Spamming
       if(one.lastElementChild.innerText == two.lastElementChild.innerText){
-        console.log(one.lastElementChild.innerText,two.lastElementChild.innerText,'Winner!');
+        // console.log(one.lastElementChild.innerText,two.lastElementChild.innerText,'Winner!');
         clearInterval(timerOne);
         clearInterval(timerTwo);
         one.lastElementChild.classList.add('pair');
@@ -237,5 +237,5 @@ document.addEventListener('click',function(event){
     //     console.log(card.classList);
     //   },5000)
   }
-  bug = 0;
+  // bug = 0;
 })
