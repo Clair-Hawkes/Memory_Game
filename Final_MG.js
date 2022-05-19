@@ -45,7 +45,7 @@ const col = document.querySelector('#col');
 //Form Event Listner
 frm.addEventListener('submit',function(event){
   event.preventDefault();
-  //Remove the Winner MEssage on Reset
+  //Remove the Winner Message on reset
   if(!winner.classList.contains('hidden')){
     winner.classList.add('hidden');
   }
@@ -86,8 +86,12 @@ function addRow(rows,cols){
     arr.push(i);
     arr.push(i);
   }
+
+  //Shuffle via function shuffle
+
+
   //Create a copy to splice values off of
-  const copy = arr.slice();
+  const copy = shuffle(arr.slice());
 
   //Set the cardBack;
   const picture = cardBacks[Math.floor(Math.random()*cardBacks.length)];
@@ -99,7 +103,11 @@ function addRow(rows,cols){
     //Inner loop creates the number of columns
     for(let i =1;i<=cols;i++){
       const card = createCard(picture);
-      card.lastElementChild.innerText = copy.splice(Math.random()*copy.length,1);
+      //Legacy shuffle function
+      // card.lastElementChild.innerText = copy.splice(Math.random()*copy.length,1);
+      //Using provided shuffle function items can be spliced in order.
+      card.lastElementChild.innerText = copy.splice(0,1);
+
       // td.append(card); Legacy comment. This is V3, and V2 was a table format.
       row.append(card);
     }
@@ -107,6 +115,24 @@ function addRow(rows,cols){
     //Otherwise a var would be used.
     document.querySelector('main').append(row);
   }
+}
+
+//Use of provided shuffle function
+//Implemented after 1st attempt at shuffle.
+function shuffle(items) {
+  // This algorithm does a "perfect shuffle", where there won't be any
+  // statistical bias in the shuffle (many naive attempts to shuffle end up not
+  // be a fair shuffle). This is called the Fisher-Yates shuffle algorithm; if
+  // you're interested, you can learn about it, but it's not important.
+
+  for (let i = items.length - 1; i > 0; i--) {
+    // generate a random index between 0 and i
+    let j = Math.floor(Math.random() * i);
+    // swap item at i <-> item at j
+    [items[i], items[j]] = [items[j], items[i]];
+  }
+  console.log(items);
+  return items;
 }
 
 //Create a single new card
