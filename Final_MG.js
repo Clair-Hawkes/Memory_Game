@@ -164,10 +164,12 @@ function updateScoreBoard(){
 
 //Flipping Cards Functionality
 document.addEventListener('click',function(event){
-  //Hopefully 3rd anf final bug fix.
+  //Hopefully 3rd and final bug fix.
   //Lesson learned: Try to catch the bug at the source.
   //Instead of trying to resolve the input of multiple duplicate events
   //Limit the duplication of event triggers.
+  //Confirm the event click is on an img
+  //Confirm the images parentEle.ParentEle (div.holder) is not flipping/flipped
   if(event.target.tagName === 'IMG' && !event.target.parentElement.parentElement.classList.contains('flipped')){
     console.log(event.target.parentElement.parentElement.classList.contains('flipped'));
     if(one === null){
