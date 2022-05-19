@@ -2,46 +2,60 @@
     margin:0;
     color: #4827DA;
 }
+
 body{
     background-color: #E4DFF9;
 }
+
 #head{
     background-color: #FEFE3D;
 }
-h1 {
+
+h1{
     text-align: center;
     color: #4827DA;
     font-family: Georgia, serif;
 }
+
 h2{
     color: #4827DA;
     font-family: Verdana, sans-serif;
 }
-.hidden {
+
+.hidden{
     visibility: hidden;
 }
+.glowing{
+    /* text-shadow: 0 0 30px #FF0000, 0 0 50px #0000FF; */
+    animation: glow 1.5s ease-in-out infinite alternate;
+}
+
 .collapse{
     visibility: collapse;
 }
+
 table {
     border-style: solid;
     text-align: center;
     font-size: 15px;
     font-family: Verdana, sans-serif;
 }
+
 th{
     color: #4827DA;
     font-family: Verdana, sans-serif;
 }
+
 label{
     font-size: 15px;
     font-family: Verdana, sans-serif;
-
 }
+
 #cardgame{
     border-style: solid;
     border-color: red;
 }
+
 .row{
     border: blue;
     display: flex;
@@ -52,17 +66,21 @@ label{
     margin-bottom: 50px;
     /* column-gap: 10px; */
 }
+
 #button{
     color: black;
     border-radius: 5px;
 }
+
 #time,#score{
     font-weight: bold;
 }
+
 #tagline{
     text-align: center;
 }
 
+/* Legacy CSS from V1 */
 /* .card{
     display: block;
     height: 200px;
@@ -83,11 +101,82 @@ aside{
     right: 100px;
     top: 20px;
 }
+
 main{
     background-color: #E4DFF9;
 }
 
+.forward{
+    animation: flip 1s linear 0s 1 normal forwards;
+    transition: linear;
+}
+.backward{
+    animation: hide 1s linear 0s 1 reverse forwards;
+    transition: linear;
+}
 
+.holder{
+    height: 200px;
+    width: 150px;
+    display: inline-block;
+    position: relative;
+    transition: transform 1s;
+    transform-style: preserve-3d;
+    transform-origin: 0,0;
+    /* display: flex;
+    align-content: center;
+    justify-content: center; */
+    margin: 25px 10px;
+}
+
+.face {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    backface-visibility: hidden;
+}
+
+.front{
+    background-color: red;
+    height: 100%;
+    width: 100%;
+    z-index: 2;
+}
+
+.back{
+    background-color: #009B77;
+    height: 100%;
+    width: 100%;
+    transform: rotateY(180deg);
+    text-align: center;
+    color: white;
+    font-size: 100px;
+    /* box-shadow: 10px 5px 5px #EFC050; */
+}
+
+.pair{
+    box-shadow: 10px 5px 5px #EFC050;
+}
+
+/* Card flipping animation */
+.flipped {
+    transform: rotateY(180deg);
+    /* transform: rotate3d(0.01, 1, 0, 180deg); */
+}
+
+/* Glow keyframes for "You Win!" */
+@keyframes glow {
+    0%{
+        text-shadow: none;
+    }
+    100%{
+        text-shadow: 0 0 1px #E9897E, 0 0 2px #926AA6;
+    }
+}
+
+
+
+/* Key Frames no longer used for flip animation */
 @keyframes flip {
     0%{
         /* transform: rotate(0deg); */
@@ -108,58 +197,3 @@ main{
         transform: rotate3d(.1,1,0, 180deg);
     }
 }
-
-.forward{
-    animation: flip 1s linear 0s 1 normal forwards;
-    transition: linear;
-}
-.backward{
-    animation: hide 1s linear 0s 1 reverse forwards;
-    transition: linear;
-}
-
-
-.holder{
-    height: 200px;
-    width: 150px;
-    display: inline-block;
-    position: relative;
-    transition: transform 1s;
-    transform-style: preserve-3d;
-    transform-origin: 0,0;
-    /* display: flex;
-    align-content: center;
-    justify-content: center; */
-    margin: 25px 10px;
-
-
-}
-.face {
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    backface-visibility: hidden;
-}
-.front{
-    background-color: red;
-    height: 100%;
-    width: 100%;
-    z-index: 2;
-}
-.back{
-    background-color: #009B77;
-    height: 100%;
-    width: 100%;
-    transform: rotateY(180deg);
-    text-align: center;
-    color: white;
-    font-size: 100px;
-    /* box-shadow: 10px 5px 5px #EFC050; */
-}
-.pair{
-    box-shadow: 10px 5px 5px #EFC050;
-}
-
-.flipped {
-    transform: rotateY(180deg);
-  }
