@@ -210,6 +210,8 @@ main{
 }
 
 /* Card flipping animation */
+/* Tutorial credit https://3dtransforms.desandro.com/card-flip */
+
 .flipped {
     transform: rotateY(180deg);
     /* transform: rotate3d(0.01, 1, 0, 180deg); */

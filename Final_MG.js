@@ -162,9 +162,7 @@ function updateScoreBoard(){
         }
 }
 
-
 //Flipping Cards Functionality
-//Tutorial credit https://3dtransforms.desandro.com/card-flip
 document.addEventListener('click',function(event){
   if(event.target.tagName === 'IMG'){
     if(one === null){
@@ -174,7 +172,9 @@ document.addEventListener('click',function(event){
       //   one.classList.toggle('flipped');
       //   one = null;
       // },3000);
-    } else if (one !== null && two === null){
+      //First major Bug Fix!!!
+      //Prior if statememnt (one !== null && two === null ) allowed spamming clicks.
+    } else if (one !== null && two === null && event.target.parentElement.parentElement !== one){
       two = event.target.parentElement.parentElement;
       two.classList.toggle('flipped');
       timerTwo = setTimeout(function(){
@@ -183,8 +183,8 @@ document.addEventListener('click',function(event){
         one = null;
         two = null;
       },2000);
-      if(one.lastElementChild.innerText === two.lastElementChild.innerText){
-        // console.log(one.lastElementChild.innerText,two.lastElementChild.innerText,'Winner!');
+      if(one.lastElementChild.innerText == two.lastElementChild.innerText){
+        console.log(one.lastElementChild.innerText,two.lastElementChild.innerText,'Winner!');
         clearInterval(timerOne);
         clearInterval(timerTwo);
         one.lastElementChild.classList.add('pair');
@@ -219,4 +219,5 @@ document.addEventListener('click',function(event){
     //     console.log(card.classList);
     //   },5000)
   }
+  bug = 0;
 })
