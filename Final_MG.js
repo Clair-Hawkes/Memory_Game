@@ -164,10 +164,21 @@ function updateScoreBoard(){
 
 //Flipping Cards Functionality
 document.addEventListener('click',function(event){
-  if(event.target.tagName === 'IMG'){
+  //Hopefully 3rd anf final bug fix.
+  //Lesson learned: Try to catch the bug at the source.
+  //Instead of trying to resolve the input of multiple duplicate events
+  //Limit the duplication of event triggers.
+  if(event.target.tagName === 'IMG' && !event.target.parentElement.parentElement.classList.contains('flipped')){
+    console.log(event.target.parentElement.parentElement.classList.contains('flipped'));
     if(one === null){
       one = event.target.parentElement.parentElement;
+      //Second Major Bug Fix!!!
+      //Prior had no if statement.
+      //Could spam a second choice assigning the value to var one
+      //Which would toggle flip laying the card with # down but pair class added.
+      if(!event.target.parentElement.parentElement.classList.contains('flipped')){
       one.classList.toggle('flipped');
+      }
       // timerOne = setTimeout(function(){
       //   one.classList.toggle('flipped');
       //   one = null;
@@ -176,13 +187,18 @@ document.addEventListener('click',function(event){
       //Prior if statememnt (one !== null && two === null ) allowed spamming clicks.
     } else if (one !== null && two === null && event.target.parentElement.parentElement !== one){
       two = event.target.parentElement.parentElement;
+      // if(!two.classList.contains('flipped')){
+      //   console.log('Add flipped, ',!two.classList.contains('flipped'))
+      // }
       two.classList.toggle('flipped');
+
       timerTwo = setTimeout(function(){
         one.classList.toggle('flipped');
         two.classList.toggle('flipped');
         one = null;
         two = null;
       },2000);
+      //Second major bug found; Spamming
       if(one.lastElementChild.innerText == two.lastElementChild.innerText){
         console.log(one.lastElementChild.innerText,two.lastElementChild.innerText,'Winner!');
         clearInterval(timerOne);
