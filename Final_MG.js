@@ -87,10 +87,7 @@ function addRow(rows,cols){
     arr.push(i);
   }
 
-  //Shuffle via function shuffle
-
-
-  //Create a copy to splice values off of
+  //Create a shuffled copy to splice values off of
   const copy = shuffle(arr.slice());
 
   //Set the cardBack;
